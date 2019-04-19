@@ -5,3 +5,6 @@
 *.list
 *.swp
 *.bak
+*.txt
+local/
+.vscode/
