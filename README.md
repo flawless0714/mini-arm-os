@@ -1,5 +1,7 @@
 Build a minimal multi-tasking OS kernel for ARM from scratch
 
+A learning note is at [Hackmd](https://hackmd.io/s/Sy_kkX-qE).
+
 Prerequisites
 -------------
 - [QEMU with an STM32 microcontroller implementation](http://beckus.github.io/qemu_stm32/)
