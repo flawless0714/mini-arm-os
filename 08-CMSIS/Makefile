@@ -70,16 +70,16 @@ gdb_ST-UTIL: $($(STM32F429_DEVICE)_TARGET_elf)
 	arm-none-eabi-gdb $^ -ex "target remote:4242"
 
 qemu: $($(STM32P103_DEVICE)_TARGET)
-	@qemu-system-arm -M ? | grep stm32-p103 >/dev/null || exit
+	@../local/qemu-system-arm -M ? | grep stm32-p103 >/dev/null || exit
 	@echo "Press Ctrl-A and then X to exit QEMU"
 	@echo
-	qemu-system-arm -M stm32-p103 -nographic -kernel $($(STM32P103_DEVICE)_TARGET_bin)
+	../local/qemu-system-arm -M stm32-p103 -nographic -kernel $($(STM32P103_DEVICE)_TARGET_bin)
 
 qemu_GDBstub: $($(STM32P103_DEVICE)_TARGET)
 	@echo ""
 	@echo "Open another terminal,and type \"make qemu_GDBconnect\""
 	@echo ""
-	qemu-system-arm -M stm32-p103 -nographic -kernel $($(STM32P103_DEVICE)_TARGET_bin) -s -S
+	../local/qemu-system-arm -M stm32-p103 -nographic -kernel $($(STM32P103_DEVICE)_TARGET_bin) -s -S
 
 qemu_GDBconnect: $($(STM32P103_DEVICE)_TARGET_elf)
 	arm-none-eabi-gdb $^ -ex "target remote:1234"

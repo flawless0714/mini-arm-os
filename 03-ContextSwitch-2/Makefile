@@ -15,10 +15,10 @@ $(TARGET): os.c startup.c context_switch.S syscall.S
 	$(CROSS_COMPILE)objdump -S os.elf > os.list
 
 qemu: $(TARGET)
-	@qemu-system-arm -M ? | grep stm32-p103 >/dev/null || exit
+	@../local/qemu-system-arm -M ? | grep stm32-p103 >/dev/null || exit
 	@echo "Press Ctrl-A and then X to exit QEMU"
 	@echo
-	qemu-system-arm -M stm32-p103 -nographic -kernel os.bin
+	../local/qemu-system-arm -M stm32-p103 -nographic -kernel os.bin
 
 clean:
 	rm -f *.o *.elf *.bin *.list

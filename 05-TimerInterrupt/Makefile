@@ -14,10 +14,10 @@ $(TARGET): hello.c startup.c
 	$(CROSS_COMPILE)objdump -S hello.elf > hello.list
 
 qemu: $(TARGET)
-	@qemu-system-arm -M ? | grep stm32-p103 >/dev/null || exit
+	@../local/qemu-system-arm -M ? | grep stm32-p103 >/dev/null || exit
 	@echo "Press Ctrl-A and then X to exit QEMU"
 	@echo
-	qemu-system-arm -M stm32-p103 -nographic -kernel hello.bin
+	../local/qemu-system-arm -M stm32-p103 -nographic -kernel hello.bin
 
 clean:
 	rm -f *.o *.bin *.elf *.list
