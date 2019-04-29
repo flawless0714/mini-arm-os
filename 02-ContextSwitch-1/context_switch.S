@@ -4,7 +4,7 @@
 .global activate
 activate:
 	/* save kernel state (into main stack pointer instead of process pointer)*/
-	mrs ip, psr /* store pse into ip (r12) */
+	mrs ip, psr /* store psr into ip (r12) */
 	push {r4, r5, r6, r7, r8, r9, r10, r11, ip, lr} /* push into MSP */
 
 	/* switch to process stack */
